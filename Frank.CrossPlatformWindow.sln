@@ -2,6 +2,23 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.CrossPlatformWindow", "Frank.CrossPlatformWindow\Frank.CrossPlatformWindow.csproj", "{A11D5B20-895D-4A7D-8A62-E5EF428C1F86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E41CBFE3-E965-473A-B84F-E22A01EA56A2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\merge.yml = .github\workflows\merge.yml
+		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+		Directory.Build.props = Directory.Build.props
+		icon.png = icon.png
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.CrossPlatformWindow.Tests.ConsoleApp", "Frank.CrossPlatformWindow.Tests.ConsoleApp\Frank.CrossPlatformWindow.Tests.ConsoleApp.csproj", "{1FB230E6-9B46-44DB-84CE-2F83B470E165}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -9,5 +26,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A11D5B20-895D-4A7D-8A62-E5EF428C1F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11D5B20-895D-4A7D-8A62-E5EF428C1F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11D5B20-895D-4A7D-8A62-E5EF428C1F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11D5B20-895D-4A7D-8A62-E5EF428C1F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FB230E6-9B46-44DB-84CE-2F83B470E165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB230E6-9B46-44DB-84CE-2F83B470E165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB230E6-9B46-44DB-84CE-2F83B470E165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB230E6-9B46-44DB-84CE-2F83B470E165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

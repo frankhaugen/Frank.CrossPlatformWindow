@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using SDL;
 
 namespace Frank.CrossPlatformWindow.Internals;
 
@@ -11,10 +12,10 @@ public class WindowsWindow : BaseWindow
 
     public WindowsWindow(int width, int height) : base(width, height)
     {
-        SDL_Init(SDL_INIT_VIDEO);
-        _window = SDL_CreateWindow("Frank's Cross-Platform Window", 100, 100, width, height, SDL_WINDOW_SHOWN);
-        _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
-        _texture = SDL_CreateTexture(_renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, width, height);
+        SDL3.SDL_Init(SDL_InitFlags.SDL_INIT_VIDEO);
+        _window = SDL3.SDL_CreateWindow("Frank's Cross-Platform Window", 100, 100, width, height, SDL3.SDL_ShowWindow(SDL3.SDL_CreateWindow("Frank's Cross-Platform Window", 100, 100, width, height, SDL3.SDL_WindowFlags.SDL_WINDOW_SHOWN).ToInt32());
+        _renderer = SDL3.SDL_CreateRenderer(_window, -1, SDL3.SDL_RENDERER_ACCELERATED);
+        _texture = SDL3.SDL_CreateTexture(_renderer, SDL3.SDL_PIXELFORMAT_ARGB8888, SDL3.SDL_TEXTUREACCESS_STREAMING, width, height);
         _pixels = new uint[width * height];
     }
 

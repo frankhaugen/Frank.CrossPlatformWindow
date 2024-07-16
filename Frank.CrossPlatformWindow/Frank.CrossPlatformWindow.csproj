@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     
     <ItemGroup>
@@ -27,17 +28,5 @@
     <PropertyGroup Condition="'$(OS)'=='OSX'">
         <DefineConstants>MACOS</DefineConstants>
     </PropertyGroup>
-
-    <ItemGroup>
-        <None Update="SDL2.dll">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="libSDL2-2.0.so.0">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="libSDL2.dylib">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
 
 </Project>

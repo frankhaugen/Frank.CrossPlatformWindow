@@ -1,14 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Frank.CrossPlatformWindow;
+using Frank.CrossPlatformWindow.Tests.ConsoleApp.RayTracingDemo;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-using Frank.CrossPlatformWindow;
-using Frank.CrossPlatformWindow.Internals;
+var cancellationTokenSource = new CancellationTokenSource();
+Console.CancelKeyPress += (sender, args) => cancellationTokenSource.Cancel();
 
-Console.WriteLine("Hello, World!");
+var builder = Host.CreateEmptyApplicationBuilder(new HostApplicationBuilderSettings());
 
-var window = new Window(100, 100);
+builder.Services.AddFrameRendering<RandomPixelColorAction, RayTracingDemo>("SDL2 Window", 1920, 1080);
+// builder.Services.AddFrameRendering<RayTracingDemo>("SDL2 Window", 1920, 1080);
+builder.Services.AddSingleton<Scene>();
+builder.Services.AddSingleton<Camera>();
 
-window.SetPixel(new Pixel(50, 50, 0xFF0000FF));
+var app = builder.Build();
 
-window.Run();
+// Execute the app as separate task to avoid blocking the main thread
+var appTask = Task.Run(() => app.RunAsync(cancellationTokenSource.Token));
 
-Console.WriteLine("Goodbye, World!");
+// Wait for the app to finish
+await appTask;

@@ -8,8 +8,8 @@ Console.CancelKeyPress += (sender, args) => cancellationTokenSource.Cancel();
 
 var builder = Host.CreateEmptyApplicationBuilder(new HostApplicationBuilderSettings());
 
-builder.Services.AddFrameRendering<RandomPixelColorAction, RayTracingDemo>("SDL2 Window", 1920, 1080);
-// builder.Services.AddFrameRendering<RayTracingDemo>("SDL2 Window", 1920, 1080);
+// builder.Services.AddFrameRendering<RandomPixelColorAction, RayTracingDemo>("SDL2 Window", 1920, 1080);
+builder.Services.AddFrameRendering<RayTracingDemo>("SDL2 Window", 1920, 1080);
 builder.Services.AddSingleton<Scene>();
 builder.Services.AddSingleton<Camera>();
 

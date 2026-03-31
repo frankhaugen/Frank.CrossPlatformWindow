@@ -28,8 +28,8 @@ internal class Renderer : IWindow, IDisposable
         _renderer = SDL_CreateRenderer(_window, -1, SDL_RendererFlags.SDL_RENDERER_ACCELERATED);
 
         // Set the window background color to black
-        SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 255);
-        SDL_RenderClear(_renderer);
+        _ = SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 255);
+        _ = SDL_RenderClear(_renderer);
         SDL_RenderPresent(_renderer);
         
         _frameWriter.PixelChanged += OnPixelChanged;
@@ -38,8 +38,8 @@ internal class Renderer : IWindow, IDisposable
     private void OnPixelChanged(int x, int y, byte r, byte g, byte b, byte a)
     {
         var rect = new SDL_Rect { x = x, y = y, w = 1, h = 1 };
-        SDL_SetRenderDrawColor(_renderer, r, g, b, a);
-        SDL_RenderFillRect(_renderer, ref rect);
+        _ = SDL_SetRenderDrawColor(_renderer, r, g, b, a);
+        _ = SDL_RenderFillRect(_renderer, ref rect);
         _needsUpdate = true;
     }
 
